@@ -1,5 +1,3 @@
-import { Button } from "@headlessui/react";
-
 const products = [
   {
     id: 1,
