@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { Fragment, useState } from 'react'
+import { Fragment, useState } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -14,78 +14,82 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-} from '@headlessui/react'
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+} from "@headlessui/react";
+import {
+  Bars3Icon,
+  MagnifyingGlassIcon,
+  ShoppingCartIcon,
+  UserIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
-const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
+const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
+  pages: [{ name: "Home", href: "/" }],
   categories: [
     {
-      name: 'Women',
+      name: "Women",
       featured: [
-        { name: 'Sleep', href: '#' },
-        { name: 'Swimwear', href: '#' },
-        { name: 'Underwear', href: '#' },
+        { name: "Sleep", href: "#" },
+        { name: "Swimwear", href: "#" },
+        { name: "Underwear", href: "#" },
       ],
       collection: [
-        { name: 'Everything', href: '#' },
-        { name: 'Core', href: '#' },
-        { name: 'New Arrivals', href: '#' },
-        { name: 'Sale', href: '#' },
+        { name: "Everything", href: "#" },
+        { name: "Core", href: "#" },
+        { name: "New Arrivals", href: "#" },
+        { name: "Sale", href: "#" },
       ],
       categories: [
-        { name: 'Basic Tees', href: '#' },
-        { name: 'Artwork Tees', href: '#' },
-        { name: 'Bottoms', href: '#' },
-        { name: 'Underwear', href: '#' },
-        { name: 'Accessories', href: '#' },
+        { name: "Basic Tees", href: "#" },
+        { name: "Artwork Tees", href: "#" },
+        { name: "Bottoms", href: "#" },
+        { name: "Underwear", href: "#" },
+        { name: "Accessories", href: "#" },
       ],
       brands: [
-        { name: 'Full Nelson', href: '#' },
-        { name: 'My Way', href: '#' },
-        { name: 'Re-Arranged', href: '#' },
-        { name: 'Counterfeit', href: '#' },
-        { name: 'Significant Other', href: '#' },
+        { name: "Full Nelson", href: "#" },
+        { name: "My Way", href: "#" },
+        { name: "Re-Arranged", href: "#" },
+        { name: "Counterfeit", href: "#" },
+        { name: "Significant Other", href: "#" },
       ],
     },
     {
-      name: 'Men',
+      name: "Men",
       featured: [
-        { name: 'Casual', href: '#' },
-        { name: 'Boxers', href: '#' },
-        { name: 'Outdoor', href: '#' },
+        { name: "Casual", href: "#" },
+        { name: "Boxers", href: "#" },
+        { name: "Outdoor", href: "#" },
       ],
       collection: [
-        { name: 'Everything', href: '#' },
-        { name: 'Core', href: '#' },
-        { name: 'New Arrivals', href: '#' },
-        { name: 'Sale', href: '#' },
+        { name: "Everything", href: "#" },
+        { name: "Core", href: "#" },
+        { name: "New Arrivals", href: "#" },
+        { name: "Sale", href: "#" },
       ],
       categories: [
-        { name: 'Artwork Tees', href: '#' },
-        { name: 'Pants', href: '#' },
-        { name: 'Accessories', href: '#' },
-        { name: 'Boxers', href: '#' },
-        { name: 'Basic Tees', href: '#' },
+        { name: "Artwork Tees", href: "#" },
+        { name: "Pants", href: "#" },
+        { name: "Accessories", href: "#" },
+        { name: "Boxers", href: "#" },
+        { name: "Basic Tees", href: "#" },
       ],
       brands: [
-        { name: 'Significant Other', href: '#' },
-        { name: 'My Way', href: '#' },
-        { name: 'Counterfeit', href: '#' },
-        { name: 'Re-Arranged', href: '#' },
-        { name: 'Full Nelson', href: '#' },
+        { name: "Significant Other", href: "#" },
+        { name: "My Way", href: "#" },
+        { name: "Counterfeit", href: "#" },
+        { name: "Re-Arranged", href: "#" },
+        { name: "Full Nelson", href: "#" },
       ],
     },
   ],
-  pages: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
-  ],
-}
+};
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="bg-white relative z-20">
@@ -128,11 +132,17 @@ export default function Navbar() {
               </div>
               <TabPanels as={Fragment}>
                 {navigation.categories.map((category, categoryIdx) => (
-                  <TabPanel key={category.name} className="space-y-12 px-4 pb-6 pt-10">
+                  <TabPanel
+                    key={category.name}
+                    className="space-y-12 px-4 pb-6 pt-10"
+                  >
                     <div className="grid grid-cols-1 items-start gap-x-6 gap-y-10">
                       <div className="grid grid-cols-1 gap-x-6 gap-y-10">
                         <div>
-                          <p id={`mobile-featured-heading-${categoryIdx}`} className="font-medium text-gray-900">
+                          <p
+                            id={`mobile-featured-heading-${categoryIdx}`}
+                            className="font-medium text-gray-900"
+                          >
                             Featured
                           </p>
                           <ul
@@ -150,10 +160,17 @@ export default function Navbar() {
                           </ul>
                         </div>
                         <div>
-                          <p id="mobile-categories-heading" className="font-medium text-gray-900">
+                          <p
+                            id="mobile-categories-heading"
+                            className="font-medium text-gray-900"
+                          >
                             Categories
                           </p>
-                          <ul role="list" aria-labelledby="mobile-categories-heading" className="mt-6 space-y-6">
+                          <ul
+                            role="list"
+                            aria-labelledby="mobile-categories-heading"
+                            className="mt-6 space-y-6"
+                          >
                             {category.categories.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
@@ -166,10 +183,17 @@ export default function Navbar() {
                       </div>
                       <div className="grid grid-cols-1 gap-x-6 gap-y-10">
                         <div>
-                          <p id="mobile-collection-heading" className="font-medium text-gray-900">
+                          <p
+                            id="mobile-collection-heading"
+                            className="font-medium text-gray-900"
+                          >
                             Collection
                           </p>
-                          <ul role="list" aria-labelledby="mobile-collection-heading" className="mt-6 space-y-6">
+                          <ul
+                            role="list"
+                            aria-labelledby="mobile-collection-heading"
+                            className="mt-6 space-y-6"
+                          >
                             {category.collection.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
@@ -181,10 +205,17 @@ export default function Navbar() {
                         </div>
 
                         <div>
-                          <p id="mobile-brand-heading" className="font-medium text-gray-900">
+                          <p
+                            id="mobile-brand-heading"
+                            className="font-medium text-gray-900"
+                          >
                             Brands
                           </p>
-                          <ul role="list" aria-labelledby="mobile-brand-heading" className="mt-6 space-y-6">
+                          <ul
+                            role="list"
+                            aria-labelledby="mobile-brand-heading"
+                            className="mt-6 space-y-6"
+                          >
                             {category.brands.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
@@ -204,7 +235,10 @@ export default function Navbar() {
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               {navigation.pages.map((page) => (
                 <div key={page.name} className="flow-root">
-                  <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
+                  <a
+                    href={page.href}
+                    className="-m-2 block p-2 font-medium text-gray-900"
+                  >
                     {page.name}
                   </a>
                 </div>
@@ -213,12 +247,18 @@ export default function Navbar() {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                <a
+                  href="#"
+                  className="-m-2 block p-2 font-medium text-gray-900"
+                >
                   Create an account
                 </a>
               </div>
               <div className="flow-root">
-                <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                <a
+                  href="#"
+                  className="-m-2 block p-2 font-medium text-gray-900"
+                >
                   Sign in
                 </a>
               </div>
@@ -242,7 +282,10 @@ export default function Navbar() {
                       ))}
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
-                      <ChevronDownIcon aria-hidden="true" className="h-5 w-5 text-gray-500" />
+                      <ChevronDownIcon
+                        aria-hidden="true"
+                        className="h-5 w-5 text-gray-500"
+                      />
                     </div>
                   </div>
                 </div>
@@ -262,7 +305,6 @@ export default function Navbar() {
               <p className="flex-1 text-center text-sm font-medium text-white lg:flex-none">
                 Get free delivery on orders over $100
               </p>
-
             </div>
           </div>
 
@@ -300,7 +342,10 @@ export default function Navbar() {
                               className="absolute inset-x-0 top-full text-gray-500 transition data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in sm:text-sm"
                             >
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-                              <div aria-hidden="true" className="absolute inset-0 top-1/2 bg-white shadow" />
+                              <div
+                                aria-hidden="true"
+                                className="absolute inset-0 top-1/2 bg-white shadow"
+                              />
 
                               <div className="relative bg-white">
                                 <div className="mx-auto max-w-7xl px-8">
@@ -319,8 +364,14 @@ export default function Navbar() {
                                           className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                         >
                                           {category.featured.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
+                                            <li
+                                              key={item.name}
+                                              className="flex"
+                                            >
+                                              <a
+                                                href={item.href}
+                                                className="hover:text-gray-800"
+                                              >
                                                 {item.name}
                                               </a>
                                             </li>
@@ -328,7 +379,10 @@ export default function Navbar() {
                                         </ul>
                                       </div>
                                       <div>
-                                        <p id="desktop-categories-heading" className="font-medium text-gray-900">
+                                        <p
+                                          id="desktop-categories-heading"
+                                          className="font-medium text-gray-900"
+                                        >
                                           Categories
                                         </p>
                                         <ul
@@ -337,8 +391,14 @@ export default function Navbar() {
                                           className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                         >
                                           {category.categories.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
+                                            <li
+                                              key={item.name}
+                                              className="flex"
+                                            >
+                                              <a
+                                                href={item.href}
+                                                className="hover:text-gray-800"
+                                              >
                                                 {item.name}
                                               </a>
                                             </li>
@@ -348,7 +408,10 @@ export default function Navbar() {
                                     </div>
                                     <div className="grid grid-cols-2 gap-x-8 gap-y-10">
                                       <div>
-                                        <p id="desktop-collection-heading" className="font-medium text-gray-900">
+                                        <p
+                                          id="desktop-collection-heading"
+                                          className="font-medium text-gray-900"
+                                        >
                                           Collection
                                         </p>
                                         <ul
@@ -357,8 +420,14 @@ export default function Navbar() {
                                           className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                         >
                                           {category.collection.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
+                                            <li
+                                              key={item.name}
+                                              className="flex"
+                                            >
+                                              <a
+                                                href={item.href}
+                                                className="hover:text-gray-800"
+                                              >
                                                 {item.name}
                                               </a>
                                             </li>
@@ -367,7 +436,10 @@ export default function Navbar() {
                                       </div>
 
                                       <div>
-                                        <p id="desktop-brand-heading" className="font-medium text-gray-900">
+                                        <p
+                                          id="desktop-brand-heading"
+                                          className="font-medium text-gray-900"
+                                        >
                                           Brands
                                         </p>
                                         <ul
@@ -376,8 +448,14 @@ export default function Navbar() {
                                           className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                         >
                                           {category.brands.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
+                                            <li
+                                              key={item.name}
+                                              className="flex"
+                                            >
+                                              <a
+                                                href={item.href}
+                                                className="hover:text-gray-800"
+                                              >
                                                 {item.name}
                                               </a>
                                             </li>
@@ -417,9 +495,15 @@ export default function Navbar() {
                     </button>
 
                     {/* Search */}
-                    <a href="#" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
+                    <a
+                      href="#"
+                      className="ml-2 p-2 text-gray-400 hover:text-gray-500"
+                    >
                       <span className="sr-only">Search</span>
-                      <MagnifyingGlassIcon aria-hidden="true" className="h-6 w-6" />
+                      <MagnifyingGlassIcon
+                        aria-hidden="true"
+                        className="h-6 w-6"
+                      />
                     </a>
                   </div>
 
@@ -437,31 +521,50 @@ export default function Navbar() {
                     <div className="flex items-center lg:ml-8">
                       <div className="flex space-x-8">
                         <div className="hidden lg:flex">
-                          <a href="#" className="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                          <a
+                            href="#"
+                            className="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                          >
                             <span className="sr-only">Search</span>
-                            <MagnifyingGlassIcon aria-hidden="true" className="h-6 w-6" />
+                            <MagnifyingGlassIcon
+                              aria-hidden="true"
+                              className="h-6 w-6"
+                            />
                           </a>
                         </div>
 
                         <div className="flex">
-                          <a href="#" className="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                          <a
+                            href="#"
+                            className="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                          >
                             <span className="sr-only">Account</span>
                             <UserIcon aria-hidden="true" className="h-6 w-6" />
                           </a>
                         </div>
                       </div>
 
-                      <span aria-hidden="true" className="mx-4 h-6 w-px bg-gray-200 lg:mx-6" />
+                      <span
+                        aria-hidden="true"
+                        className="mx-4 h-6 w-px bg-gray-200 lg:mx-6"
+                      />
 
                       <div className="flow-root">
-                        <a href="#" className="group -m-2 flex items-center p-2">
+                        <Link
+                          href="/cart"
+                          className="group -m-2 flex items-center p-2"
+                        >
                           <ShoppingCartIcon
                             aria-hidden="true"
                             className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                           />
-                          <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                          <span className="sr-only">items in cart, view bag</span>
-                        </a>
+                          <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                            0
+                          </span>
+                          <span className="sr-only">
+                            items in cart, view bag
+                          </span>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -472,5 +575,5 @@ export default function Navbar() {
         </nav>
       </header>
     </div>
-  )
+  );
 }
